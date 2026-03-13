@@ -27,7 +27,7 @@ const taskSchema = new mongoose.Schema(
     },
     board: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'board',
+      ref: 'Boards',
       required: true,
     },
     user: {

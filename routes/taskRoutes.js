@@ -45,17 +45,21 @@ router.get('/:boardId', async (req, res) => {
 // PUT /api/tasks/:id — Update task
 router.put('/:id', async (req, res) => {
   try {
+
+    const { status } = req.body;
+
     const task = await Task.findOneAndUpdate(
       { _id: req.params.id, user: req.user._id },
-      req.body,
-      { new: true, runValidators: true }
+      { status },
+      { new: true }
     );
 
     if (!task) {
-      return res.status(404).json({ message: 'Task not found' });
+      return res.status(404).json({ message: "Task not found" });
     }
 
     res.json(task);
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
