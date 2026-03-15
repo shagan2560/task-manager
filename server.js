@@ -13,7 +13,7 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: "https://task-manager-frontend-five-tau.vercel.app/",
+    origin: "https://task-manager-frontend-five-tau.vercel.app",
     credentials: true,
   })
 );
